@@ -1,3 +1,8 @@
+/*
+* Author: Rodrigo Zarate & Ronal Aguirre
+* Date: may 2022
+*/
+
 #include "hsh.h"
 
 /**

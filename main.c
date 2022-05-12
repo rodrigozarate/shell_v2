@@ -1,5 +1,5 @@
 /*
-* Author: Rodrigo Zarate & Ronald Aguirre
+* Author: Rodrigo Zarate & Ronal Aguirre
 * Date: may 2022
 */
 
@@ -15,6 +15,9 @@ int main(int argc, char *argv[])
 {
 	(void) argc;
 	(void) argv;
+
+	initvars()->p_name = argv[0];
+	driver(argv);
 
 	return (0);
 }
