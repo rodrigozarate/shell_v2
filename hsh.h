@@ -37,4 +37,8 @@ enum CONSTANTS
 	CONTINUE
 };
 
+void driver(char **argv);
+int read_line(char **line, size_t *n);
+int launch(char **input, char **argv);
+
 #endif /* _HSH_HOLBERTON_ */

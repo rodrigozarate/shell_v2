@@ -10,7 +10,7 @@
  * @argv: Arguments
  */
 
-void driver(char *argv)
+void driver(char **argv)
 {
 	size_t n = 0;
 	char *line = NULL;
@@ -62,7 +62,7 @@ int read_line(char **line, size_t *n)
 		{
 			if (*walk == '\n')
 				*walk = '\0';
-			*walk++;
+			walk++;
 		}
 	}
 	return (bytes);
@@ -81,8 +81,8 @@ int launch(char **input, char **argv)
 	int status = SUCCESS, *p_status = &initvars()->p_status;
 
 	(void) argv;
-	printf("line: %s",line);
-	printf("p_status: %d",p_status);
+	printf(" - line: %s \n",line);
+	printf(" - p_status: %d \n",*p_status);
 	return (status);
 }
 
