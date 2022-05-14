@@ -5,6 +5,8 @@
 
 #include "hsh.h"
 
+int xd();
+
 /**
  * _own - select own implementations
  * @argv: char double pointer
@@ -17,6 +19,8 @@ int _own(char **argv)
 
 	if (_strncmp(task, "exit", _strlen("exit")) == 0)
 		builtin = _ownexit(argv);
+	else if (_strncmp(task, "xd", _strlen("xd")) == 0)
+		builtin = xd();
 
 	return (builtin);
 }
@@ -46,4 +50,14 @@ int _ownexit(char **argv)
 		status = CONTINUE;
 	}
 	return (status);
+}
+
+/**
+ * xd - just smile
+ * Return: 0
+ */
+int xd()
+{
+	printf("Just, SMILE!\n \nXD\n\n ");
+	return (0);
 }

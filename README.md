@@ -96,3 +96,9 @@ General
 ### TESTING
 #### Interactive mode
 #### Non interactive mode
+## BUILTINS
+### exit
+Terminate the program
+### XD
+Put a smile on your face.
+XD

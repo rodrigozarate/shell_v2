@@ -77,10 +77,34 @@ int read_line(char **line, size_t *n)
 int launch(char **input, char **argv)
 {
 	char *line = *input;
-
+	char **tokencmd, *realpath;
 	int status = SUCCESS, *p_status = &initvars()->p_status;
 
 	(void) argv;
+
+	tokencmd = parseline(line);
+	if (tokencmd)
+	{
+		status = _own(tokencmd);
+		if (status == NOTFOUND)
+		{
+			realpath = cmdselect(tokencmd[0]);
+			if (realpath)
+			{
+				*p_status = 0;
+				if (execute(realpath, tokencmd) != 0)
+					*p_status = 2;
+				free(realpath);
+			}
+			else
+			{
+				*p_status = 127;
+				_printerror(1, line);
+			}
+		}
+		free(tokencmd);
+	}
+
 	printf(" - line: %s \n", line);
 	printf(" - p_status: %d \n", *p_status);
 	return (status);

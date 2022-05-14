@@ -36,3 +36,28 @@ int _strlen(const char *tocheck)
 		i++;
 	return (i);
 }
+
+/**
+ * _strdup - duplicate string
+ * @string: input
+ * Return: pointer
+ */
+char *_strdup(const char *string)
+{
+	int lenght;
+	char *newstr;
+
+	lenght = 0;
+	while (string[lenght])
+		lenght++;
+
+	newstr = malloc(sizeof(*newstr) * (lenght + 1));
+	if (!newstr)
+		return (NULL);
+
+	for (lenght = 0; string[lenght]; lenght++)
+		newstr[lenght] = string[lenght];
+	newstr[lenght] = '\0';
+
+	return (newstr);
+}

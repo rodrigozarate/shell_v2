@@ -26,6 +26,17 @@ typedef struct initvars_s
 initvars_t *initvars(void);
 
 /**
+ * struct path_s - list of paths
+ * @pathstring: the path
+ * @next: more paths
+ */
+typedef struct path_s
+{
+	char *pathstring;
+	struct path_s *next;
+} path_t;
+
+/**
  * enum CONSTANTS - constants
  * @SUCCESS: 0
  * @BREAK: 1 break
@@ -40,14 +51,18 @@ enum CONSTANTS
 	NOTFOUND
 };
 
-/* main */
+/* driver */
 void driver(char **argv);
 int read_line(char **line, size_t *n);
 int launch(char **input, char **argv);
+int execute(char const *cmd, char *const *args);
 
 /* builtin */
 int _own(char **argv);
 int _ownexit(char **argv);
+
+/* cmdselect */
+char *cmdselect(char *cmd);
 
 /* aux 1 */
 int _isdigit(const char * const tocheck);
@@ -56,5 +71,8 @@ int _printerror(int errorcode, char *argv);
 /* aux 2 */
 int _strncmp(const char *s1, const char *s2, size_t n);
 int _strlen(const char *tocheck);
+char *_strdup(const char *string);
+/* aux 3 */
+char **parseline(char *str);
 
 #endif /* _HSH_HOLBERTON_ */
