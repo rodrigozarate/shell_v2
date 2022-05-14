@@ -19,7 +19,7 @@ int _own(char **argv)
 
 	if (_strncmp(task, "exit", _strlen("exit")) == 0)
 		builtin = _ownexit(argv);
-	else if (_strncmp(task, "xd", _strlen("xd")) == 0)
+	else if (_strncmp(task, "XD", _strlen("XD")) == 0)
 		builtin = xd();
 
 	return (builtin);
@@ -53,7 +53,7 @@ int _ownexit(char **argv)
 }
 
 /**
- * xd - just smile
+ * XD - just smile
  * Return: 0
  */
 int xd()
