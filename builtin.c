@@ -6,6 +6,7 @@
 #include "hsh.h"
 
 int xd();
+int _printenv(void);
 
 /**
  * _own - select own implementations
@@ -21,6 +22,8 @@ int _own(char **argv)
 		builtin = _ownexit(argv);
 	else if (_strncmp(task, "XD", _strlen("XD")) == 0)
 		builtin = xd();
+	else if (_strncmp(task, "env", _strlen("env")) == 0)
+		builtin = _printenv();
 
 	return (builtin);
 }
@@ -50,6 +53,20 @@ int _ownexit(char **argv)
 		status = CONTINUE;
 	}
 	return (status);
+}
+
+/**
+ * _printenv - print env vars
+ * Return: CONTINUE
+ */
+int _printenv(void)
+{
+	int i;
+
+	if (environ)
+		for (i = 0; environ[i]; i++)
+			printf("%s\n", environ[i]);
+	return (CONTINUE);
 }
 
 /**
