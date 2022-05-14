@@ -19,11 +19,11 @@ char **parseline(char *str)
 
 	if (!str)
 		return (NULL);
-	
+
 	copystr = _strdup(str);
 	if (!copystr)
 		return (NULL);
-	
+
 	tempstr = copystr;
 	n = 0;
 	while (strtok(tempstr, breaker))
@@ -31,14 +31,14 @@ char **parseline(char *str)
 		n++;
 		tempstr = NULL;
 	}
-	free (copystr);
+	free(copystr);
 	if (n == 0)
 		return (NULL);
-	
+
 	liststr = malloc(sizeof(*liststr) * (n + 1));
 	if (!liststr)
 		return (NULL);
-	
+
 	tempstr = str;
 	for (i = 0; i < n; i++)
 	{

@@ -14,7 +14,7 @@ char *cmdselect(char *cmd)
 	revcmd = cmd;
 	if (!direct(revcmd) && access(revcmd, X_OK) == 0)
 		return (revcmd);
-	
+
 	free(revcmd);
 	return (realpath);
 }
@@ -34,16 +34,16 @@ int direct(char const *str)
 
 	if (str[0] == '/')
 		return (0);
-	
+
 	if (lenght < 2)
 		return (1);
-	
+
 	if (str[0] == '.' && str[1] == '/')
 		return (0);
-	
+
 	if (lenght < 3)
 		return (1);
-	
+
 	if (str[0] == '.' && str[1] == '.' && str[2] == '/')
 		return (0);
 

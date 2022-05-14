@@ -5,7 +5,7 @@
 
 #include "hsh.h"
 
-int xd();
+int xd(void);
 int _printenv(void);
 
 /**
@@ -73,7 +73,7 @@ int _printenv(void)
  * XD - just smile
  * Return: 0
  */
-int xd()
+int xd(void)
 {
 	printf("Just, SMILE!\n \nXD\n\n ");
 	return (0);
