@@ -27,18 +27,34 @@ initvars_t *initvars(void);
 
 /**
  * enum CONSTANTS - constants
- * @BREAK: break
- * @CONTINUE: continue
+ * @SUCCESS: 0
+ * @BREAK: 1 break
+ * @CONTINUE: 2 continue
+ * @NOTFOUND: 3 notfound
  */
 enum CONSTANTS
 {
 	SUCCESS,
 	BREAK,
-	CONTINUE
+	CONTINUE,
+	NOTFOUND
 };
 
+/* main */
 void driver(char **argv);
 int read_line(char **line, size_t *n);
 int launch(char **input, char **argv);
+
+/* builtin */
+int _own(char **argv);
+int _ownexit(char **argv);
+
+/* aux 1 */
+int _isdigit(const char * const tocheck);
+int _atoi(char *tocheck);
+int _printerror(int errorcode, char *argv);
+/* aux 2 */
+int _strncmp(const char *s1, const char *s2, size_t n);
+int _strlen(const char *tocheck);
 
 #endif /* _HSH_HOLBERTON_ */

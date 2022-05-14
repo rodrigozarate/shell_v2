@@ -48,7 +48,7 @@ int read_line(char **line, size_t *n)
 
 	if (isatty(STDIN_FILENO))
 		printf("%s", PROMPT);
-	
+
 	bytes = getline(line, n, stdin);
 	if (bytes == EOF)
 	{
@@ -77,12 +77,12 @@ int read_line(char **line, size_t *n)
 int launch(char **input, char **argv)
 {
 	char *line = *input;
-	
+
 	int status = SUCCESS, *p_status = &initvars()->p_status;
 
 	(void) argv;
-	printf(" - line: %s \n",line);
-	printf(" - p_status: %d \n",*p_status);
+	printf(" - line: %s \n", line);
+	printf(" - p_status: %d \n", *p_status);
 	return (status);
 }
 

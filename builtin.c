@@ -1,13 +1,24 @@
+/*
+* Author: Rodrigo Zarate & Ronal Aguirre
+* Date: may 2022
+*/
+
 #include "hsh.h"
 
 /**
  * _own - select own implementations
  * @argv: char double pointer
+ * Return: int code for builtin
  */
 int _own(char **argv)
 {
-	int status = NOTFOUND;
-	char *cmd = argv[0];
+	int builtin = NOTFOUND;
+	char *task = argv[0];
+
+	if (_strncmp(task, "exit", _strlen("exit")) == 0)
+		builtin = _ownexit(argv);
+
+	return (builtin);
 }
 
 /**
@@ -30,7 +41,7 @@ int _ownexit(char **argv)
 			if (holder >= 0)
 				return (BREAK);
 		}
-		perror(2, argv[1]);
+		_printerror(2, argv[1]);
 		*p_status = 2;
 		status = CONTINUE;
 	}
