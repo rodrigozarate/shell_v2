@@ -75,6 +75,15 @@ int _printenv(void)
  */
 int xd(void)
 {
-	printf("Just, SMILE!\n \nXD\n\n ");
+	printf("--------------------------\n");
+	printf("-X---------X---DDDDDD-----\n");
+	printf("---X-----X-----D------D---\n");
+	printf("-----X-X-------D--------D-\n");
+	printf("------X--------D--------D-\n");
+	printf("-----X-X-------D--------D-\n");
+	printf("---X-----X-----D-------D--\n");
+	printf("-X---------X---DDDDDDD----\n");
+	printf("--------------------------\n ");
+
 	return (0);
 }
