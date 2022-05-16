@@ -5,8 +5,11 @@
 
 #include "hsh.h"
 
+int _ownexit(char **argv);
 int xd(void);
 int _printenv(void);
+int _owncd(char **argv);
+char *get_env_var(const char *theenv);
 
 /**
  * _own - select own implementations
@@ -24,6 +27,8 @@ int _own(char **argv)
 		builtin = xd();
 	else if (_strncmp(task, "env", _strlen("env")) == 0)
 		builtin = _printenv();
+	else if (_strncmp(task, "cd", _strlen("cd")) == 0)
+		builtin = _owncd(argv);
 
 	return (builtin);
 }
@@ -70,7 +75,7 @@ int _printenv(void)
 }
 
 /**
- * XD - just smile
+ * xd - just smile
  * Return: 0
  */
 int xd(void)
@@ -78,12 +83,74 @@ int xd(void)
 	printf("--------------------------\n");
 	printf("-X---------X---DDDDDD-----\n");
 	printf("---X-----X-----D------D---\n");
-	printf("-----X-X-------D--------D-\n");
-	printf("------X--------D--------D-\n");
-	printf("-----X-X-------D--------D-\n");
-	printf("---X-----X-----D-------D--\n");
+	printf("-----X-X-------D-------D--\n");
+	printf("------X--------D-------D--\n");
+	printf("-----X-X-------D-------D--\n");
+	printf("---X-----X-----D------D---\n");
 	printf("-X---------X---DDDDDDD----\n");
 	printf("--------------------------\n ");
 
 	return (0);
+}
+
+/**
+ * _owncd - change directory
+ * @argv: double pointer
+ * Return: int
+ */
+int _owncd(char **argv)
+{
+	int *p_status = &initvars()->p_status;
+	char *actdir = get_env_var("PWD");
+	char *home = get_env_var("HOME");
+	char *prevdir = get_env_var("OLDPWD");
+	char *newcd = argv[1];
+	char *hold;
+	int builtin = CONTINUE;
+	int flag = 0;
+
+	*p_status = 0;
+
+	if (!newcd || *newcd == '~' ||
+		_strncmp(newcd, "$HOME", _strlen("$HOME")) == 0)
+		newcd = home;
+	else if (_strncmp(newcd, "-", _strlen("-")) == 0)
+	{
+		flag = 1;
+		newcd = prevdir;
+	}
+	if (newcd)
+	{
+		builtin = chdir(newcd);
+		if (builtin != -1)
+			_strcpy(actdir, newcd);
+		else
+		{
+			_printerror(3, newcd);
+			*p_status = 2;
+		}
+	}
+	if (flag)
+	{
+		hold = getcwd(NULL, 0);
+		printf("%s\n", hold);
+		free(hold);
+	}
+	return (builtin);
+}
+
+/**
+ * get_env_var - get environment variables
+ * @theenv: the env var
+ * Return: the env var or NULL
+ */
+char *get_env_var(const char *theenv)
+{
+	int i, lenght;
+
+	lenght = _strlen(theenv);
+	for (i = 0; environ[i]; i++)
+		if (_strncmp(theenv, environ[i], lenght) == 0 && environ[i][lenght] == '=')
+			return (environ[i] + lenght + 1);
+	return (NULL);
 }

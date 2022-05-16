@@ -61,3 +61,14 @@ char *_strdup(const char *string)
 
 	return (newstr);
 }
+
+char *_strcpy(char *scopy, const char *sorigin)
+{
+	int i;
+
+	for (i = 0; sorigin[i]; i++)
+		scopy[i] = sorigin[i];
+	scopy[i] = '\0';
+
+	return (scopy);
+}

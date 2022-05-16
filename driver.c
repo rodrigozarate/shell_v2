@@ -105,8 +105,6 @@ int launch(char **input, char **argv)
 		free(tokencmd);
 	}
 
-	printf(" - line: %s \n", line);
-	printf(" - p_status: %d \n", *p_status);
 	return (status);
 }
 

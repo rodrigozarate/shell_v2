@@ -72,6 +72,7 @@ int _printerror(int errorcode, char *argv);
 int _strncmp(const char *s1, const char *s2, size_t n);
 int _strlen(const char *tocheck);
 char *_strdup(const char *string);
+char *_strcpy(char *scopy, const char *sorigin);
 /* aux 3 */
 char **parseline(char *str);
 
