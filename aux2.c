@@ -62,6 +62,12 @@ char *_strdup(const char *string)
 	return (newstr);
 }
 
+/**
+ * _strcpy - copy a string
+ * @scopy: copy string
+ * @sorigin: origin string
+ * Return: string copied
+ */
 char *_strcpy(char *scopy, const char *sorigin)
 {
 	int i;

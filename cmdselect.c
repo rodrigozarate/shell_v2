@@ -1,6 +1,11 @@
 #include "hsh.h"
 int direct(char const *str);
 
+/**
+ * cmdselect - command selector
+ * @cmd: command
+ * Return: path
+ */
 char *cmdselect(char *cmd)
 {
 	char *realpath = NULL;
