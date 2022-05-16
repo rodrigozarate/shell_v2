@@ -30,25 +30,37 @@
 #### Non interactive mode
 ## BUILTINS
 ### exit
+`$ exit`
+
 Terminate the program
-`exit`
 ### XD
-`XD`
+`$ XD`
+
 Put a smile on your face.
---------------------------
--X---------X---DDDDDD-----
----X-----X-----D------D---
+`--------------------------`
+
+`-X---------X---DDDDDD-----`
+
+`---X-----X-----D------D---`
+
 -----X-X-------D-------D--
+
 ------X--------D-------D--
+
 -----X-X-------D-------D--
+
 ---X-----X-----D------D---
+
 -X---------X---DDDDDDD----
---------------------------
+
+--------------------------`
 ### env
-`env`
+`$ env`
+
 Prints environtment variables
 ### cd
-`cd`
+`$ cd`
+
 Change current proccess directory
 options
     -   Previous directory
