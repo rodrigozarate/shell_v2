@@ -25,6 +25,8 @@
     Make sure your program compiles on Ubuntu 14.04 LTS, with gcc 4.8.4
     You must compile using the flags -Wall -Werror -Wextra and -pedantic
     Your executable must be named: hsh
+    
+    `$ make`
 ### TESTING
 #### Interactive mode
 #### Non interactive mode
@@ -63,8 +65,13 @@ Prints environtment variables
 `$ cd`
 
 Change current proccess directory
+
 options
+
     -   Previous directory
+
     .   Same directory
+
     ..  Parent directory
+
     ~   Home directory
