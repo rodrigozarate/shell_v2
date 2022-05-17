@@ -9,7 +9,6 @@ int _ownexit(char **argv);
 int xd(void);
 int _printenv(void);
 int _owncd(char **argv);
-char *get_env_var(const char *theenv);
 
 /**
  * _own - select own implementations
@@ -108,7 +107,6 @@ int _owncd(char **argv)
 	char *hold;
 	int builtin = CONTINUE;
 	int flag = 0;
-
 	*p_status = 0;
 
 	if (!newcd || *newcd == '~' ||
@@ -137,20 +135,4 @@ int _owncd(char **argv)
 		free(hold);
 	}
 	return (builtin);
-}
-
-/**
- * get_env_var - get environment variables
- * @theenv: the env var
- * Return: the env var or NULL
- */
-char *get_env_var(const char *theenv)
-{
-	int i, lenght;
-
-	lenght = _strlen(theenv);
-	for (i = 0; environ[i]; i++)
-		if (_strncmp(theenv, environ[i], lenght) == 0 && environ[i][lenght] == '=')
-			return (environ[i] + lenght + 1);
-	return (NULL);
 }

@@ -65,6 +65,10 @@ int _ownexit(char **argv);
 
 /* cmdselect */
 char *cmdselect(char *cmd);
+void freelist(path_t *head);
+int getpath(path_t **head);
+void freelist(path_t *head);
+path_t *addnode(path_t **head, char *pvalue);
 
 /* aux 1 */
 int _isdigit(const char * const tocheck);
@@ -77,5 +81,6 @@ char *_strdup(const char *string);
 char *_strcpy(char *scopy, const char *sorigin);
 /* aux 3 */
 char **parseline(char *str);
+char *get_env_var(const char *theenv);
 
 #endif /* _HSH_HOLBERTON_ */

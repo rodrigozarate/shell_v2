@@ -49,3 +49,19 @@ char **parseline(char *str)
 
 	return (liststr);
 }
+
+/**
+ * get_env_var - get environment variables
+ * @theenv: the env var
+ * Return: the env var or NULL
+ */
+char *get_env_var(const char *theenv)
+{
+	int i, lenght;
+
+	lenght = _strlen(theenv);
+	for (i = 0; environ[i]; i++)
+		if (_strncmp(theenv, environ[i], lenght) == 0 && environ[i][lenght] == '=')
+			return (environ[i] + lenght + 1);
+	return (NULL);
+}
