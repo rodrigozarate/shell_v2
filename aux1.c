@@ -62,7 +62,7 @@ int _printerror(int errorcode, char *argv)
 {
 	const char *error_list[] = {
 		"ALL FINE",
-		"%s: %d: %s: not found\n",
+		"%s: %d: %s: command not found\n",
 		"%s: %d: exit: Illegal number%s\n",
 		NULL
 	};
