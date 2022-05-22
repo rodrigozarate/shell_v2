@@ -28,6 +28,10 @@ int _own(char **argv)
 		builtin = _printenv();
 	else if (_strncmp(task, "cd", _strlen("cd")) == 0)
 		builtin = _owncd(argv);
+	else if (_strncmp(task, "setenv", _strlen("setenv")) == 0)
+		builtin = _ownsetenv(argv);
+	else if (_strncmp(task, "unsetenv", _strlen("unsetenv")) == 0)
+		builtin = _ownunsetenv(argv);
 
 	return (builtin);
 }

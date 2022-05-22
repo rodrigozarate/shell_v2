@@ -63,6 +63,10 @@ int execute(char const *cmd, char *const *args);
 int _own(char **argv);
 int _ownexit(char **argv);
 
+/* environment */
+int _ownsetenv(char **argv);
+int _ownunsetenv(char **argv);
+
 /* cmdselect */
 char *cmdselect(char *cmd);
 void freelist(path_t *head);
